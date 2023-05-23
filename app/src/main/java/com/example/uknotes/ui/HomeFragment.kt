@@ -7,12 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
-import com.example.uknotes.R
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.namespace.R
+import com.example.uknotes.db.NoteDatabase
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.launch
 
 
-
- class HomeFragment : Fragment() {
+ class HomeFragment : BaseFragment() {
     //lateinit var buttonPlus: FloatingActionButton
 
     override fun onCreateView(
@@ -27,6 +31,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
      override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
          super.onViewCreated(view, savedInstanceState)
+         view.findViewById<RecyclerView>(R.id.recycler_view_home).setHasFixedSize(true)
+         view.findViewById<RecyclerView>(R.id.recycler_view_home).layoutManager=StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+         launch {
+             context?.let{
+                 val notes=NoteDatabase(it).getNotesDao().getAllNotes()
+                 view.findViewById<RecyclerView>(R.id.recycler_view_home).adapter=NotesAdapter(notes)
+             }
+         }
+
          val button = view.findViewById<FloatingActionButton>(R.id.button_add)
          button.setOnClickListener {
              val action=HomeFragmentDirections.actionAddNote()

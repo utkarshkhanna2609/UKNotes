@@ -4,17 +4,21 @@
     android:layout_width="match_parent"
     android:background="@drawable/bg"
     android:layout_height="match_parent"
-    tools:context=".ui.AddNoteFragment">
+
+    tools:context="com.example.uknotes.ui.AddNoteFragment">
 
     <EditText
+        android:layout_margin="12dp"
         android:id="@+id/title"
         android:height="40dp"
         android:hint="ADD TITLE"
         android:textSize="16sp"
-        android:textAppearance="@style/ShapeAppearance.Material3.Corner.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <EditText
+        android:layout_margin="12dp"
+        android:id="@+id/note"
         android:layout_below="@+id/title"
         android:height="40dp"
         android:hint="Note"

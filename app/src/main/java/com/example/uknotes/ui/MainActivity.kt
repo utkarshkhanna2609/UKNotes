@@ -6,7 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.example.uknotes.R
+import com.example.namespace.R
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
