@@ -1,5 +1,6 @@
  package com.example.uknotes.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ import kotlinx.coroutines.launch
         return view
     }
 
+     @SuppressLint("CutPasteId")
      override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
          super.onViewCreated(view, savedInstanceState)
          view.findViewById<RecyclerView>(R.id.recycler_view_home).setHasFixedSize(true)
